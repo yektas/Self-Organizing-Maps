@@ -1,5 +1,7 @@
 from mvpa2.suite import *
 
+#white(1,1,1) black(0,0,0)
+#Training inputs for RGB Colors (between 0 and 1)
 colors = np.array(
          [[0., 0., 0.],
           [0., 0., 1.],
@@ -24,9 +26,24 @@ color_names = \
          'cyan', 'violet', 'yellow', 'white',
          'darkgrey', 'mediumgrey', 'lightgrey']
 
-som = SimpleSOMMapper((20, 30), 400, learning_rate=0.05)
+'''
+We tell the mapper to use a rectangular later with 20x30 units.
+This will be the output space of the mapper
+Additionally, we tell it to train the network using 400 iterations
+and to use custom learning rate
+'''
+som = SimpleSOMMapper((20, 30), 600, learning_rate=0.05)
+
+#Train the mapper
 som.train(colors)
+
 pl.imshow(som.K, origin='lower')
+
+"""
+And now, let's take a look onto which coordinates the initial training
+prototypes were mapped to. The get those coordinates we can simply feed
+the training data to the mapper and plot the output.
+"""
 
 mapped = som(colors)
 
@@ -37,5 +54,4 @@ for i, m in enumerate(mapped):
            bbox=dict(facecolor='white', alpha=0.5, lw=0))
 
 # show the figure
-if cfg.getboolean('examples', 'interactive', True):
-    pl.show()
+pl.show()
