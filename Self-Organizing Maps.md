@@ -30,18 +30,16 @@ $Dist=\sqrt{\displaystyle\sum_{i=0}^{i=n}({V_i-W_i})^2}$ (Euclidean Distance)
 $V$= input vektörü
 $W$= Nöronun ağırlık vektörü
 
----
- 4- Bu seçtiğimiz en uygun nörona komşu olan bütün nöronlar güncellenerek giriş vektörüne yaklaştırılır. (Aşağıdaki formül kullanılır):
+--- 
 
-##### $W(t+1)= W(t)+\theta(t)\alpha(t)((D(t)-W(t)))$
+5- Daha sonra bütün nöronların ağırlıkları güncellenir:
 
-5-  $t< \lambda$ olduğu sürece 2. adıma dönülerek işlemler tekrar edilir.
+#### $W(t+1)= W(t)+\theta(t)L(t)(V(t)-W(t))$
 
-$t$ = şimdiki adım
-$\lambda$= adım üzerindeki zaman limiti (iterasyon sayısı) 	
-$D$ = input vektörü
-$\theta(t)$) = komşuluk fonksiyonu (en uygun komşudan ne kadar uzağa gidileceği)
-$\alpha(t)$ = monoton azalan öğrenme katsayısı
+$\theta(t)$ = etkileme fonksiyonu
+$L(t)$ = öğrenme oranı
+
+6- $t$ arttırılır ve $t<\lambda$ olduğu sürece 2. adıma döneriz.
 
 ---
 <!-- *template: invert -->
@@ -63,6 +61,8 @@ $\alpha(t)$ = monoton azalan öğrenme katsayısı
 ---
 <!-- *template: invert -->
 ## Uygulama Alanları
+
+![80%](images/map.jpg) ![77%](images/povertymap.jpg)
 - Renk Sınıflandırma
 - Müşteri segmentasyon profili
 ---
