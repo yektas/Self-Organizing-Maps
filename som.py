@@ -33,7 +33,7 @@ This will be the output space of the mapper
 Additionally, we tell it to train the network using 400 iterations
 and to use custom learning rate
 '''
-som = SimpleSOMMapper((20, 30), 600, learning_rate=0.05)
+som = SimpleSOMMapper((20, 30), 400, learning_rate=0.05)
 
 #Train the mapper
 som.train(colors)
